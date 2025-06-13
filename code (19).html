@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI提效工具箱导航</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 20px;
+        }
+        header h1 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        header p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .category {
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .category h2 {
+            color: #3498db;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.8em;
+        }
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .tool-card {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .tool-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.25em;
+        }
+        .tool-card h3 a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .tool-card h3 a:hover {
+            text-decoration: underline;
+        }
+        .tool-card p {
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            flex-grow: 1; /* Makes sure cards in a row have similar height for description */
+        }
+        .tool-card .remarks {
+            font-style: italic;
+            color: #555;
+            font-size: 0.85em;
+            margin-top: auto; /* Pushes remarks to the bottom */
+        }
+        .tool-card .link-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 12px;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+        .tool-card .link-button:hover {
+            background-color: #2980b9;
+        }
+        .tool-card .link-button.disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #777;
+        }
+         /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tool-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+            header h1 { font-size: 1.8em; }
+            .category h2 { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI 提效工具箱导航</h1>
+            <p>根据《那些被 AI 重塑的行业和职业》文章附录整理</p>
+        </header>
+
+        <main>
+            <section class="category">
+                <h2>大模型聊天对话</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://chat.openai.com" target="_blank">ChatGPT</a></h3>
+                        <p><strong>主要功能：</strong>领先的通用大语言模型，能理解和生成自然语言文本，进行对话、写作、编程等。</p>
+                        <a href="https://chat.openai.com" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，GPT-4需付费。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://claude.ai" target="_blank">Claude</a></h3>
+                        <p><strong>主要功能：</strong>Anthropic 开发的大模型，擅长长文本处理和生成，安全性较高。</p>
+                        <a href="https://claude.ai" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：Claude 3 系列表现优异，部分地区需科学上网。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://gemini.google.com" target="_blank">Google Gemini</a></h3>
+                        <p><strong>主要功能：</strong>Google 开发的多模态大模型，能处理文本、图片、音频、视频等多种信息。</p>
+                        <a href="https://gemini.google.com" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：前身为 Bard，需科学上网。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://yiyan.baidu.com" target="_blank">文心一言</a></h3>
+                        <p><strong>主要功能：</strong>百度出品的知识增强大语言模型，中文理解和生成能力强。</p>
+                        <a href="https://yiyan.baidu.com" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：国内可直接访问。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://tongyi.aliyun.com" target="_blank">通义千问</a></h3>
+                        <p><strong>主要功能：</strong>阿里巴巴达摩院研发的预训练语言模型，支持多种任务。</p>
+                        <a href="https://tongyi.aliyun.com" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：国内可直接访问。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://www.coze.com" target="_blank">Coze (国际版)</a> / <a href="https://www.coze.cn" target="_blank">扣子 (国内版)</a></h3>
+                        <p><strong>主要功能：</strong>字节跳动推出的 AI Bot 开发平台，可快速创建和部署 AI 应用。</p>
+                        <a href="https://www.coze.com" target="_blank" class="link-button">Coze 国际版</a>
+                        <a href="https://www.coze.cn" target="_blank" class="link-button">扣子 国内版</a>
+                        <p class="remarks"><em>备注：国际版需科学上网。</em></p>
+                    </div>
+                     <div class="tool-card">
+                        <h3><a href="https://kimi.moonshot.cn/" target="_blank">Kimi Chat</a></h3>
+                        <p><strong>主要功能：</strong>月之暗面 (Moonshot AI) 开发的智能助手，支持超长无损上下文。</p>
+                        <a href="https://kimi.moonshot.cn/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：国内可直接访问，长文本处理能力突出。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 写作工具</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://www.notion.so/ai" target="_blank">Notion AI</a></h3>
+                        <p><strong>主要功能：</strong>集成在 Notion 笔记应用中的 AI 写作助手，可用于总结、翻译、改写、生成初稿等。</p>
+                        <a href="https://www.notion.so/ai" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，Notion 用户可直接使用。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://jasper.ai" target="_blank">Jasper (原 Jarvis)</a></h3>
+                        <p><strong>主要功能：</strong>专业的 AI 营销文案和内容生成工具，模板丰富。</p>
+                        <a href="https://jasper.ai" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，付费。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://xiezuocat.com/" target="_blank">秘塔写作猫</a></h3>
+                        <p><strong>主要功能：</strong>国产 AI 写作工具，支持文章生成、改写、校对、翻译等。</p>
+                        <a href="https://xiezuocat.com/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：国内可直接访问。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://copy.ai/" target="_blank">Copy.ai</a></h3>
+                        <p><strong>主要功能：</strong>AI 驱动的文案生成器，提供多种模板，适合营销和创意写作。</p>
+                        <a href="https://copy.ai/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，提供免费额度。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 图片生成与处理</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://www.midjourney.com" target="_blank">Midjourney</a></h3>
+                        <p><strong>主要功能：</strong>高质量的 AI 绘画工具，通过文本描述生成艺术图片，效果惊艳。</p>
+                        <a href="https://www.midjourney.com" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，在 Discord 中使用，付费。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://stablediffusion.com/" target="_blank">Stable Diffusion</a></h3>
+                        <p><strong>主要功能：</strong>开源的 AI 绘画模型，可本地部署，社区活跃，插件丰富。</p>
+                        <a href="https://stablediffusion.com/" target="_blank" class="link-button">了解更多</a>
+                        <p class="remarks"><em>备注：开源免费，有一定技术门槛。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://designer.microsoft.com/" target="_blank">Microsoft Designer</a></h3>
+                        <p><strong>主要功能：</strong>微软推出的 AI 设计工具，集成 DALL-E 模型，可快速生成设计稿和图片。</p>
+                        <a href="https://designer.microsoft.com/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，部分功能免费。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://www.adobe.com/sensei/generative-ai/firefly.html" target="_blank">Adobe Firefly</a></h3>
+                        <p><strong>主要功能：</strong>Adobe 推出的创意生成式 AI 模型系列，集成到 Photoshop 等 Adobe 全家桶。</p>
+                        <a href="https://www.adobe.com/sensei/generative-ai/firefly.html" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：商业安全，注重版权。</em></p>
+                    </div>
+                     <div class="tool-card">
+                        <h3><a href="https://leonardo.ai/" target="_blank">Leonardo.Ai</a></h3>
+                        <p><strong>主要功能：</strong>提供多种 AI 模型的图片生成平台，可训练自定义模型。</p>
+                        <a href="https://leonardo.ai/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，提供免费额度。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 音频处理</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://elevenlabs.io/" target="_blank">ElevenLabs</a></h3>
+                        <p><strong>主要功能：</strong>高质量 AI 语音合成和克隆工具，效果自然。</p>
+                        <a href="https://elevenlabs.io/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，提供免费额度。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://podcast.adobe.com/enhance" target="_blank">Adobe Podcast Enhance Speech</a></h3>
+                        <p><strong>主要功能：</strong>Adobe 提供的免费在线工具，能显著提升录音质量，消除噪音和回声。</p>
+                        <a href="https://podcast.adobe.com/enhance" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：免费，效果出色。</em></p>
+                    </div>
+                     <div class="tool-card">
+                        <h3><a href="https://suno.ai/" target="_blank">Suno AI</a></h3>
+                        <p><strong>主要功能：</strong>AI 音乐生成工具，输入文本即可创作带人声的歌曲。</p>
+                        <a href="https://suno.ai/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，提供免费额度，效果惊艳。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 视频生成与处理</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://runwayml.com/" target="_blank">Runway</a></h3>
+                        <p><strong>主要功能：</strong>强大的 AI 视频编辑和生成平台，提供 Gen-1、Gen-2 等模型，支持文生视频、图生视频等。</p>
+                        <a href="https://runwayml.com/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，功能强大，提供免费额度。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://pika.art/" target="_blank">Pika</a></h3>
+                        <p><strong>主要功能：</strong>AI 视频生成工具，通过文本或图片生成视频，效果较好。</p>
+                        <a href="https://pika.art/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，提供免费额度。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://d-id.com/" target="_blank">D-ID</a></h3>
+                        <p><strong>主要功能：</strong>AI 数字人视频生成平台，可将静态照片生成开口说话的动态视频。</p>
+                        <a href="https://d-id.com/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，提供免费试用。</em></p>
+                    </div>
+                     <div class="tool-card">
+                        <h3><a href="https://openai.com/sora" target="_blank">OpenAI Sora</a></h3>
+                        <p><strong>主要功能：</strong>OpenAI 开发的文生视频大模型，生成视频的质量和时长领先。</p>
+                        <a href="https://openai.com/sora" target="_blank" class="link-button">了解更多</a>
+                        <p class="remarks"><em>备注：目前尚未公开发布，仅限部分研究人员和创作者使用。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 编程辅助</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a></h3>
+                        <p><strong>主要功能：</strong>基于 OpenAI Codex 的 AI 编程助手，可在 IDE 中提供代码建议、自动补全等。</p>
+                        <a href="https://github.com/features/copilot" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：付费，对学生和开源贡献者免费。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://replit.com/ai" target="_blank">Replit Ghostwriter</a></h3>
+                        <p><strong>主要功能：</strong>Replit 在线 IDE 中的 AI 编程功能，支持代码生成、解释、调试等。</p>
+                        <a href="https://replit.com/ai" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，部分功能付费。</em></p>
+                    </div>
+                     <div class="tool-card">
+                        <h3><a href="https://www.cursor.so/" target="_blank">Cursor</a></h3>
+                        <p><strong>主要功能：</strong>AI-first 的代码编辑器，深度集成 GPT-4 等模型，辅助编程、调试、问答。</p>
+                        <a href="https://www.cursor.so/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，提供免费额度。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 设计辅助</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://www.figma.com/ai/" target="_blank">Figma AI (FigJam AI)</a></h3>
+                        <p><strong>主要功能：</strong>Figma/FigJam 中的 AI 功能，辅助流程图生成、思维导图、内容总结等。</p>
+                        <a href="https://www.figma.com/ai/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，集成在 Figma/FigJam 中。</em></p>
+                    </div>
+                     <div class="tool-card">
+                        <h3><a href="https://gamma.app/" target="_blank">Gamma</a></h3>
+                        <p><strong>主要功能：</strong>AI 驱动的演示文稿/文档/网页制作工具，快速生成精美内容。</p>
+                        <a href="https://gamma.app/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，提供免费额度。</em></p>
+                    </div>
+                     <div class="tool-card">
+                        <h3><a href="https://js.design/ai" target="_blank">即时 AI (即时设计)</a></h3>
+                        <p><strong>主要功能：</strong>国产设计工具即时设计内置的 AI 功能，支持文生图、原型生成等。</p>
+                        <a href="https://js.design/ai" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：国内可直接访问。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 办公提效</h2>
+                 <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://www.microsoft.com/en-us/microsoft-365/copilot" target="_blank">Microsoft 365 Copilot</a></h3>
+                        <p><strong>主要功能：</strong>集成在 Microsoft 365 全家桶中的 AI 助手，赋能 Word, Excel, PowerPoint, Outlook, Teams 等。</p>
+                        <a href="https://www.microsoft.com/en-us/microsoft-365/copilot" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：企业级应用，付费。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://feishu.cn/ai" target="_blank">飞书智能伙伴</a></h3>
+                        <p><strong>主要功能：</strong>飞书套件中的 AI 助手，支持会议纪要、文档写作、内容创作等。</p>
+                        <a href="https://feishu.cn/ai" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：国内可直接访问，部分功能逐步开放。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://www.dingtalk.com/ai" target="_blank">钉钉 AI 魔法棒</a></h3>
+                        <p><strong>主要功能：</strong>钉钉内置的 AI 能力，支持聊天摘要、文档创作、应用搭建等。</p>
+                        <a href="https://www.dingtalk.com/ai" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：国内可直接访问，部分功能逐步开放。</em></p>
+                    </div>
+                </div>
+            </section>
+
+             <section class="category">
+                <h2>AI 语音输入法</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://srf.xunfei.cn/" target="_blank">讯飞输入法</a></h3>
+                        <p><strong>主要功能：</strong>科大讯飞出品，语音识别准确率高，支持多种方言和 AI 功能。</p>
+                        <a href="https://srf.xunfei.cn/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：移动端为主。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 搜索引擎</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://www.perplexity.ai/" target="_blank">Perplexity AI</a></h3>
+                        <p><strong>主要功能：</strong>对话式 AI 搜索引擎，能理解自然语言问题并给出带引用来源的答案。</p>
+                        <a href="https://www.perplexity.ai/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，体验优秀。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://www.bing.com/new" target="_blank">New Bing (Copilot in Bing)</a></h3>
+                        <p><strong>主要功能：</strong>微软将 AI 大模型 (GPT-4) 集成到必应搜索中，提供聊天式搜索和内容创作能力。</p>
+                        <a href="https://www.bing.com/new" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：Edge 浏览器中体验更佳，国内部分网络可访问。</em></p>
+                    </div>
+                </div>
+            </section>
+
+             <section class="category">
+                <h2>AI Agent</h2>
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <h3><a href="https://github.com/Significant-Gravitas/Auto-GPT" target="_blank">Auto-GPT</a></h3>
+                        <p><strong>主要功能：</strong>开源的实验性自主 AI 代理，能根据目标自动规划和执行任务。</p>
+                        <a href="https://github.com/Significant-Gravitas/Auto-GPT" target="_blank" class="link-button">访问 GitHub</a>
+                        <p class="remarks"><em>备注：技术门槛较高，处于早期阶段。</em></p>
+                    </div>
+                     <div class="tool-card">
+                        <h3><a href="https://github.com/Torantulino/agentGPT" target="_blank">AgentGPT</a></h3>
+                        <p><strong>主要功能：</strong>允许用户在浏览器中配置和部署自主 AI 代理，相对易用。</p>
+                        <a href="https://github.com/Torantulino/agentGPT" target="_blank" class="link-button">访问 GitHub</a>
+                        <p class="remarks"><em>备注：开源，仍在发展中。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 提示词工具</h2>
+                <div class="tool-grid">
+                     <div class="tool-card">
+                        <h3><a href="https://arthur.ai/prompt-engineering-guide" target="_blank">Prompt Engineering Guide</a></h3>
+                        <p><strong>主要功能：</strong>全面的提示词工程学习指南和资源。</p>
+                        <a href="https://arthur.ai/prompt-engineering-guide" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：英文为主，内容详实。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://flowgpt.com/" target="_blank">FlowGPT</a></h3>
+                        <p><strong>主要功能：</strong>分享和发现 ChatGPT 等大模型优秀提示词的社区。</p>
+                        <a href="https://flowgpt.com/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，提示词丰富。</em></p>
+                    </div>
+                     <div class="tool-card">
+                        <h3><a href="https://snackprompt.com/" target="_blank">Snack Prompt</a></h3>
+                        <p><strong>主要功能：</strong>提示词分享平台，界面简洁，分类清晰。</p>
+                        <a href="https://snackprompt.com/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 模型训练平台</h2>
+                <div class="tool-grid">
+                     <div class="tool-card">
+                        <h3><a href="https://huggingface.co/" target="_blank">Hugging Face</a></h3>
+                        <p><strong>主要功能：</strong>领先的开源 AI 模型和数据集平台，提供模型托管、训练、部署等服务。</p>
+                        <a href="https://huggingface.co/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，AI 从业者必备。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://replicate.com/" target="_blank">Replicate</a></h3>
+                        <p><strong>主要功能：</strong>在云端运行和微调开源 AI 模型，提供 API 调用。</p>
+                        <a href="https://replicate.com/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，方便开发者集成 AI 模型。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="category">
+                <h2>AI 导航网站</h2>
+                <div class="tool-grid">
+                     <div class="tool-card">
+                        <h3><a href="https://theresanaiforthat.com/" target="_blank">There's An AI For That</a></h3>
+                        <p><strong>主要功能：</strong>全面的 AI 工具搜索引擎和导航，收录广泛。</p>
+                        <a href="https://theresanaiforthat.com/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，更新快。</em></p>
+                    </div>
+                    <div class="tool-card">
+                        <h3><a href="https://futurepedia.io/" target="_blank">Futurepedia</a></h3>
+                        <p><strong>主要功能：</strong>最大的 AI 工具目录之一，每日更新。</p>
+                        <a href="https://futurepedia.io/" target="_blank" class="link-button">访问官网</a>
+                        <p class="remarks"><em>备注：需科学上网，工具数量多。</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 更多分类和工具可以按此格式添加 -->
+
+        </main>
+
+        <footer>
+            <p>&copy; 2024 AI提效工具箱导航. 本站内容根据微信公众号“少数派”文章《那些被 AI 重塑的行业和职业》附录整理，仅供学习交流。</p>
+        </footer>
+    </div>
+</body>
+</html>
